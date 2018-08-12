@@ -19,8 +19,8 @@ OpenTrade is an open source OEMS, and algorithmic trading platform, designed for
 * **Compile**
   * Prepare dev environment.
   ```bash
-  sudo apt-get update \
-  && apt-get install -y \
+  sudo apt update \
+  && sudo apt install -y \
     g++  \
     make \
     cmake \
