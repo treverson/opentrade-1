@@ -1,10 +1,10 @@
 db_url=host=127.0.0.1 user=postgres password=test dbname=opentrade
 
-[ec_ib]
-sofile=./libib.so
-host=127.0.0.1
-port=4002
-client_id=1
+#[ec_ib]
+#sofile=./libib.so
+#host=127.0.0.1
+#port=4002
+#client_id=1
 
 [ec_sim]
 sofile=./libsim_client.so
