@@ -51,6 +51,32 @@ OpenTrade is an open source OEMS, and algorithmic trading platform, designed for
   make debug
   ```
   
-  * **Setup database**
-    ```bash
-    ```
+ * **Setup database**
+   ```bash
+   sudo apt remove --purge postgres*
+   sudo apt autoremove
+   sudo apt install -y postgresql-10 postgresql-contrib postgresql-client
+   wget https://github.com/opentradesolutions/data/raw/master/opentrade-pg_dumpall.sql
+   sudo -u postgres psql -f opentrade-pg_dumpall.sql postgres
+   ```
+ 
+ * **Run opentrade**
+   * Download tick data files
+   ```bash
+   cd opentrade;
+   wget https://raw.githubusercontent.com/opentradesolutions/data/master/bbgids.txt
+   wget https://github.com/opentradesolutions/data/raw/master/ticks.txt.xz.part1
+   wget https://github.com/opentradesolutions/data/raw/master/ticks.txt.xz.part2
+   cat ticks.txt.xz.part1 ticks.txt.xz.part2 > ticks.txt.xz
+   xz -d ticks.txt.xz
+   ```
+   * Run
+   ```Bash
+   cp opentrade.conf-example opentrade.conf
+   ./opentrade
+   ```
+   
+ * **Open Web UI**
+   ```
+   http://localhost:9111
+   ```
