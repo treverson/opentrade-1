@@ -78,5 +78,6 @@ OpenTrade is an open source OEMS, and algorithmic trading platform, designed for
    
  * **Open Web UI**
    ```
+   # username/password: test/test
    http://localhost:9111
    ```
