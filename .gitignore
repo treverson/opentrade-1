@@ -7,7 +7,6 @@ tags
 store
 *.so
 opentrade.conf
-core
 log.conf
 ticks.txt
 bbgids.txt
