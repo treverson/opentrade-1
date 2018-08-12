@@ -8,7 +8,7 @@ types = ('STK', 'CASH', 'CMDTY', 'FUT', 'OPT', 'IND', 'FOP', 'WAR', 'BOND',
 
 def main():
   conn = pg8000.connect(
-      host='45.77.255.226',
+      host='127.0.0.1',
       database='opentrade',
       user='postgres',
       password='test')
