@@ -1,4 +1,4 @@
-# opentrade
+# OpenTrade
 OpenTrade is an open source OEMS, and algorithmic trading platform, designed for simplicity, flexibility and performance. 
 
 [**Demo**](http://demo.opentradesolutions.com)
@@ -63,7 +63,7 @@ OpenTrade is an open source OEMS, and algorithmic trading platform, designed for
  * **Run opentrade**
    * Download tick data files
    ```bash
-   cd opentrade;
+   cd opentrade
    wget https://raw.githubusercontent.com/opentradesolutions/data/master/bbgids.txt
    wget https://github.com/opentradesolutions/data/raw/master/ticks.txt.xz.part1
    wget https://github.com/opentradesolutions/data/raw/master/ticks.txt.xz.part2
