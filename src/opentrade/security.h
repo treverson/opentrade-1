@@ -1,5 +1,5 @@
-#ifndef CORE_SECURITY_H_
-#define CORE_SECURITY_H_
+#ifndef OPENTRADE_SECURITY_H_
+#define OPENTRADE_SECURITY_H_
 
 #include <tbb/concurrent_unordered_map.h>
 #include <string>
@@ -130,4 +130,4 @@ class SecurityManager : public Singleton<SecurityManager> {
 
 }  // namespace opentrade
 
-#endif  // CORE_SECURITY_H_
+#endif  // OPENTRADE_SECURITY_H_

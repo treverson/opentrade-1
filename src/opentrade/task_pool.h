@@ -1,5 +1,5 @@
-#ifndef CORE_TASK_POOL_H_
-#define CORE_TASK_POOL_H_
+#ifndef OPENTRADE_TASK_POOL_H_
+#define OPENTRADE_TASK_POOL_H_
 
 #include <boost/asio.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
@@ -65,4 +65,4 @@ class TaskPool {
 
 }  // namespace opentrade
 
-#endif  // CORE_TASK_POOL_H_
+#endif  // OPENTRADE_TASK_POOL_H_

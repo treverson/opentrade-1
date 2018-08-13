@@ -1,5 +1,5 @@
-#ifndef CORE_COMMON_H_
-#define CORE_COMMON_H_
+#ifndef OPENTRADE_COMMON_H_
+#define OPENTRADE_COMMON_H_
 
 #include <tbb/atomic.h>
 #include <cassert>
@@ -113,4 +113,4 @@ inline void PositionValue::HandleFinish(bool is_buy, double leaves_qty,
 
 }  // namespace opentrade
 
-#endif  // CORE_COMMON_H_
+#endif  // OPENTRADE_COMMON_H_

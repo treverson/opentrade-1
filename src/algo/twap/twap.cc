@@ -1,6 +1,6 @@
 #include "twap.h"
 
-#include <core/logger.h>
+#include <opentrade/logger.h>
 
 namespace opentrade {
 

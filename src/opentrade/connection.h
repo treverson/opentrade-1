@@ -1,5 +1,5 @@
-#ifndef CORE_CONNECTION_H_
-#define CORE_CONNECTION_H_
+#ifndef OPENTRADE_CONNECTION_H_
+#define OPENTRADE_CONNECTION_H_
 
 #include <boost/asio.hpp>
 #include <boost/unordered_map.hpp>
@@ -66,4 +66,4 @@ class Connection : public std::enable_shared_from_this<Connection> {
 
 }  // namespace opentrade
 
-#endif  // CORE_CONNECTION_H_
+#endif  // OPENTRADE_CONNECTION_H_

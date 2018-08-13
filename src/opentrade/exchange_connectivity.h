@@ -1,5 +1,5 @@
-#ifndef CORE_EXCHANGE_CONNECTIVITY_H_
-#define CORE_EXCHANGE_CONNECTIVITY_H_
+#ifndef OPENTRADE_EXCHANGE_CONNECTIVITY_H_
+#define OPENTRADE_EXCHANGE_CONNECTIVITY_H_
 
 #include "adapter.h"
 #include "order.h"
@@ -42,4 +42,4 @@ class ExchangeConnectivityManager
 
 }  // namespace opentrade
 
-#endif  // CORE_EXCHANGE_CONNECTIVITY_H_
+#endif  // OPENTRADE_EXCHANGE_CONNECTIVITY_H_

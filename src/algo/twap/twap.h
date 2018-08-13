@@ -1,8 +1,8 @@
 #ifndef ALGO_TWAP_TWAP_H_
 #define ALGO_TWAP_TWAP_H_
 
-#include "core/algo.h"
-#include "core/security.h"
+#include "opentrade/algo.h"
+#include "opentrade/security.h"
 
 namespace opentrade {
 

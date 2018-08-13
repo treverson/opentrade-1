@@ -1,5 +1,5 @@
-#ifndef CORE_POSITION_H_
-#define CORE_POSITION_H_
+#ifndef OPENTRADE_POSITION_H_
+#define OPENTRADE_POSITION_H_
 
 #include <soci.h>
 #include <tbb/concurrent_unordered_map.h>
@@ -84,4 +84,4 @@ class PositionManager : public Singleton<PositionManager> {
 
 }  // namespace opentrade
 
-#endif  // CORE_POSITION_H_
+#endif  // OPENTRADE_POSITION_H_

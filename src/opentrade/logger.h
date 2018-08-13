@@ -1,5 +1,5 @@
-#ifndef CORE_LOGGER_H_
-#define CORE_LOGGER_H_
+#ifndef OPENTRADE_LOGGER_H_
+#define OPENTRADE_LOGGER_H_
 
 #include <log4cxx/basicconfigurator.h>
 #include <log4cxx/logger.h>
@@ -83,4 +83,4 @@ log4j.appender.sql.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} %5p - %m
     }                                                              \
   }
 
-#endif  // CORE_LOGGER_H_
+#endif  // OPENTRADE_LOGGER_H_

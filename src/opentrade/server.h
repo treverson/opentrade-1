@@ -1,5 +1,5 @@
-#ifndef CORE_SERVER_H_
-#define CORE_SERVER_H_
+#ifndef OPENTRADE_SERVER_H_
+#define OPENTRADE_SERVER_H_
 
 #include "algo.h"
 
@@ -16,4 +16,4 @@ class Server {
 
 }  // namespace opentrade
 
-#endif  // CORE_SERVER_H_
+#endif  // OPENTRADE_SERVER_H_

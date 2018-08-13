@@ -16,11 +16,11 @@
 #include <quickfix/ThreadedSocketAcceptor.h>
 #undef throw
 
-#include "core/logger.h"
-#include "core/market_data.h"
-#include "core/security.h"
-#include "core/task_pool.h"
 #include "fix/filelog.h"
+#include "opentrade/logger.h"
+#include "opentrade/market_data.h"
+#include "opentrade/security.h"
+#include "opentrade/task_pool.h"
 
 using Security = opentrade::Security;
 

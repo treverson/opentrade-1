@@ -8,7 +8,7 @@
 #include <blpapi_subscriptionlist.h>
 #include <blpapi_tlsoptions.h>
 
-#include "core/logger.h"
+#include "opentrade/logger.h"
 
 static const bbg::Name kBid("BID");
 static const bbg::Name kAsk("ASK");

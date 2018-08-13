@@ -1,5 +1,5 @@
-#ifndef CORE_UTILITY_H_
-#define CORE_UTILITY_H_
+#ifndef OPENTRADE_UTILITY_H_
+#define OPENTRADE_UTILITY_H_
 
 #include <sys/time.h>
 #include <boost/algorithm/string.hpp>
@@ -110,4 +110,4 @@ static inline decltype(auto) Split(const std::string& str, const char* sep,
 
 }  // namespace opentrade
 
-#endif  // CORE_UTILITY_H_
+#endif  // OPENTRADE_UTILITY_H_

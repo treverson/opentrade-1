@@ -11,11 +11,11 @@
 #include <quickfix/ThreadedSocketInitiator.h>
 #undef throw
 
-#include "core/exchange_connectivity.h"
-#include "core/logger.h"
-#include "core/utility.h"
 #include "filelog.h"
 #include "filestore.h"
+#include "opentrade/exchange_connectivity.h"
+#include "opentrade/logger.h"
+#include "opentrade/utility.h"
 
 namespace opentrade {
 

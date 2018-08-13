@@ -9,8 +9,8 @@
 #include <tbb/concurrent_unordered_set.h>
 #include <atomic>
 
-#include "core/market_data.h"
-#include "core/task_pool.h"
+#include "opentrade/market_data.h"
+#include "opentrade/task_pool.h"
 
 namespace bbg = BloombergLP::blpapi;
 

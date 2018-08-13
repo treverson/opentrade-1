@@ -60,7 +60,7 @@ endif()
 find_package(Boost REQUIRED COMPONENTS system program_options date_time filesystem iostreams) 
 include_directories(${Boost_INCLUDE_DIRS})
 
-add_subdirectory(core)
+add_subdirectory(opentrade)
 add_subdirectory(ib)
 add_subdirectory(algo)
 add_subdirectory(md)

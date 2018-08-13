@@ -1,5 +1,5 @@
-#ifndef CORE_ORDER_H_
-#define CORE_ORDER_H_
+#ifndef OPENTRADE_ORDER_H_
+#define OPENTRADE_ORDER_H_
 
 #include <tbb/concurrent_unordered_map.h>
 #include <tbb/concurrent_unordered_set.h>
@@ -172,4 +172,4 @@ static inline bool GetOrderSide(const std::string& side_str, OrderSide* side) {
 
 }  // namespace opentrade
 
-#endif  // CORE_ORDER_H_
+#endif  // OPENTRADE_ORDER_H_

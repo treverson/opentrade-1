@@ -1,14 +1,14 @@
 #ifndef IB_IB_H_
 #define IB_IB_H_
 
-#include "core/exchange_connectivity.h"
-#include "core/market_data.h"
-#include "core/security.h"
-#include "core/task_pool.h"
 #include "jts/DefaultEWrapper.h"
 #include "jts/EClientSocket.h"
 #include "jts/EReader.h"
 #include "jts/EReaderOSSignal.h"
+#include "opentrade/exchange_connectivity.h"
+#include "opentrade/market_data.h"
+#include "opentrade/security.h"
+#include "opentrade/task_pool.h"
 
 #include <tbb/concurrent_unordered_map.h>
 #include <tbb/concurrent_unordered_set.h>

@@ -1,5 +1,5 @@
-#ifndef CORE_DATABASE_H_
-#define CORE_DATABASE_H_
+#ifndef OPENTRADE_DATABASE_H_
+#define OPENTRADE_DATABASE_H_
 
 #include <soci.h>
 #include <cstring>
@@ -36,4 +36,4 @@ class Database {
 
 }  // namespace opentrade
 
-#endif  // CORE_DATABASE_H_
+#endif  // OPENTRADE_DATABASE_H_

@@ -1,5 +1,5 @@
-#ifndef CORE_ADAPTER_H_
-#define CORE_ADAPTER_H_
+#ifndef OPENTRADE_ADAPTER_H_
+#define OPENTRADE_ADAPTER_H_
 
 #include <atomic>
 #include <memory>
@@ -58,4 +58,4 @@ class AdapterManager {
 
 }  // namespace opentrade
 
-#endif  // CORE_ADAPTER_H_
+#endif  // OPENTRADE_ADAPTER_H_

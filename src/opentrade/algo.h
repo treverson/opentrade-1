@@ -1,5 +1,5 @@
-#ifndef CORE_ALGO_H_
-#define CORE_ALGO_H_
+#ifndef OPENTRADE_ALGO_H_
+#define OPENTRADE_ALGO_H_
 
 #include <tbb/atomic.h>
 #include <tbb/concurrent_unordered_map.h>
@@ -191,4 +191,4 @@ class AlgoManager : public AdapterManager<Algo>, public Singleton<AlgoManager> {
 
 }  // namespace opentrade
 
-#endif  // CORE_ALGO_H_
+#endif  // OPENTRADE_ALGO_H_

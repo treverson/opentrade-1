@@ -1,5 +1,5 @@
-#ifndef CORE_MARKET_DATA_H_
-#define CORE_MARKET_DATA_H_
+#ifndef OPENTRADE_MARKET_DATA_H_
+#define OPENTRADE_MARKET_DATA_H_
 
 #include <tbb/concurrent_unordered_map.h>
 #include <map>
@@ -117,4 +117,4 @@ class MarketDataManager : public AdapterManager<MarketDataAdapter>,
 
 }  // namespace opentrade
 
-#endif  // CORE_MARKET_DATA_H_
+#endif  // OPENTRADE_MARKET_DATA_H_

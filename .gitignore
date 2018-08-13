@@ -10,3 +10,4 @@ opentrade.conf
 log.conf
 ticks.txt
 bbgids.txt
+core

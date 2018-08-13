@@ -1,5 +1,5 @@
-#ifndef CORE_ACCOUNT_H_
-#define CORE_ACCOUNT_H_
+#ifndef OPENTRADE_ACCOUNT_H_
+#define OPENTRADE_ACCOUNT_H_
 
 #include <tbb/concurrent_unordered_map.h>
 #include <string>
@@ -92,4 +92,4 @@ class AccountManager : public Singleton<AccountManager> {
 
 }  // namespace opentrade
 
-#endif  // CORE_ACCOUNT_H_
+#endif  // OPENTRADE_ACCOUNT_H_

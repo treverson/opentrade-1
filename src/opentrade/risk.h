@@ -1,5 +1,5 @@
-#ifndef CORE_RISK_H_
-#define CORE_RISK_H_
+#ifndef OPENTRADE_RISK_H_
+#define OPENTRADE_RISK_H_
 
 #include <string>
 
@@ -18,4 +18,4 @@ class RiskManager : public Singleton<RiskManager> {
 
 }  // namespace opentrade
 
-#endif  // CORE_RISK_H_
+#endif  // OPENTRADE_RISK_H_
