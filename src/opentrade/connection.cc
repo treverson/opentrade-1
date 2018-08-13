@@ -941,12 +941,6 @@ void Connection::Send(const Confirmation& cm, bool offline) {
       j.push_back(GetTif(cm.order->tif));
       break;
 
-    case kUnconfirmedCancel:
-      status = "unconfirmed_cancel";
-      j.push_back(status);
-      j.push_back(cm.order->orig_id);
-      break;
-
     case kPendingNew:
       status = "pending";
     case kPendingCancel:
@@ -988,9 +982,7 @@ void Connection::Send(const Confirmation& cm, bool offline) {
       if (!status) status = "risk_rejected";
       j.push_back(status);
       j.push_back(cm.text);
-      if (cm.exec_type == kCancelRejected) {
-        j.push_back(cm.order->orig_id);
-      } else if (cm.exec_type == kRiskRejected && !cm.order->id) {
+      if (cm.exec_type == kRiskRejected) {
         j.push_back(cm.order->sec->id);
         j.push_back(cm.order->algo_id);
         j.push_back(cm.order->user->id);
@@ -1000,6 +992,9 @@ void Connection::Send(const Confirmation& cm, bool offline) {
         j.push_back(GetSide(cm.order->side));
         j.push_back(GetType(cm.order->type));
         j.push_back(GetTif(cm.order->tif));
+        if (cm.order->orig_id) {
+          j.push_back(cm.order->orig_id);
+        }
       }
       break;
 

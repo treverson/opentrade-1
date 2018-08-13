@@ -419,23 +419,12 @@ void GlobalOrderBook::LoadStore(uint32_t seq0, Connection* conn) {
         if (id > order_id_counter_) order_id_counter_ = id;
       } break;
       case kUnconfirmedCancel: {
+        if (conn) continue;
         uint32_t id;
         int64_t tm;
         uint32_t orig_id;
         if (sscanf(body, "%u %ld %u", &id, &tm, &orig_id) < 3) {
           LOG_ERROR("Failed to parse confirmation line #" << ln);
-          continue;
-        }
-        if (conn) {
-          Confirmation cm{};
-          cm.seq = seq;
-          Order ord{};
-          ord.id = id;
-          ord.orig_id = orig_id;
-          cm.order = &ord;
-          cm.exec_type = exec_type;
-          cm.transaction_time = tm;
-          conn->Send(cm, true);
           continue;
         }
         auto orig_ord = Get(orig_id);
@@ -464,22 +453,20 @@ void GlobalOrderBook::LoadStore(uint32_t seq0, Connection* conn) {
           LOG_ERROR("Failed to parse confirmation line #" << ln);
           continue;
         }
-        if (conn) {
-          assert(id > 0);
-          Confirmation cm{};
-          cm.seq = seq;
-          Order ord{};
-          ord.id = id;
-          cm.order = &ord;
-          cm.exec_type = exec_type;
-          cm.text = text;
-          conn->Send(cm, true);
-          continue;
-        }
         auto ord = Get(id);
         if (!ord) {
           LOG_ERROR("Unknown order id " << id << " on confirmation line #"
                                         << ln);
+          continue;
+        }
+        if (conn) {
+          assert(id > 0);
+          Confirmation cm{};
+          cm.seq = seq;
+          cm.order = ord;
+          cm.exec_type = exec_type;
+          cm.text = text;
+          conn->Send(cm, true);
           continue;
         }
         auto cm = std::make_shared<Confirmation>();

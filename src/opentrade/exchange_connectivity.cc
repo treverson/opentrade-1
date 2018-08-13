@@ -197,7 +197,6 @@ bool ExchangeConnectivityManager::Cancel(const Order& orig_ord) {
   auto adapter = orig_ord.broker_account->adapter;
   auto name = orig_ord.broker_account->adapter_name;
   auto cancel_order = new Order(orig_ord);
-  cancel_order->id = GlobalOrderBook::Instance().NewOrderId();
   cancel_order->orig_id = orig_ord.id;
   cancel_order->status = kUnconfirmedCancel;
   cancel_order->tm = NowUtcInMicro();
@@ -207,6 +206,7 @@ bool ExchangeConnectivityManager::Cancel(const Order& orig_ord) {
     return false;
   }
   HandleConfirmation(cancel_order, kUnconfirmedCancel, "", cancel_order->tm);
+  cancel_order->id = GlobalOrderBook::Instance().NewOrderId();
   kRiskError = adapter->Cancel(*cancel_order);
   auto ok = kRiskError.empty();
   if (!ok)
