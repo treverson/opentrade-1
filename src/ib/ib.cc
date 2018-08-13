@@ -151,7 +151,7 @@ bool IB::Connect(const char* host, unsigned int port, int client_id) {
     reader_->start();
     tp_.AddTask([this, client_id]() {
       for (auto id : subs_) {
-        auto sec = opentrade::SecurityManager::Instance().GetSecurity(id);
+        auto sec = opentrade::SecurityManager::Instance().Get(id);
         if (!sec) continue;
         Subscribe2(*sec);
       }

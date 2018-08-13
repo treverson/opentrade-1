@@ -370,7 +370,7 @@ void GlobalOrderBook::LoadStore(uint32_t seq0, Connection* conn) {
           conn->Send(cm, true);
           continue;
         }
-        auto sec = SecurityManager::Instance().GetSecurity(sec_id);
+        auto sec = SecurityManager::Instance().Get(sec_id);
         if (!sec) {
           LOG_ERROR("Unknown security id " << sec_id
                                            << " on confirmation line #" << ln);

@@ -42,7 +42,7 @@ struct Exchange {
   }
   bool IsInTradePeriod() const {
     auto t = GetTime();
-    return (break_start <= 0 || (t > break_start && t < break_end)) &&
+    return (break_start <= 0 || (t < break_start || t > break_end)) &&
            (trade_start <= 0 || (t > trade_start && t < trade_end));
   }
 };
@@ -103,7 +103,7 @@ class SecurityManager : public Singleton<SecurityManager> {
  public:
   static void Initialize();
   const char* check_sum() const { return check_sum_; }
-  const Security* GetSecurity(Security::IdType id) {
+  const Security* Get(Security::IdType id) {
     return FindInMap(securities_, id);
   }
   const Exchange* GetExchange(Exchange::IdType id) {

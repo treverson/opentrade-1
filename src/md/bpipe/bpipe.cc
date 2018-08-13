@@ -219,7 +219,7 @@ void BPIPE::ProcessResponse(const bbg::Event& evt) {
     if (msg_type == "AuthorizationSuccess") {
       connected_ = 1;
       for (auto id : subs_) {
-        auto sec = opentrade::SecurityManager::Instance().GetSecurity(id);
+        auto sec = opentrade::SecurityManager::Instance().Get(id);
         if (!sec) continue;
         Subscribe2(*sec);
       }

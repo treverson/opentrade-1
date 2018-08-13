@@ -135,7 +135,7 @@ void PositionManager::Initialize() {
     auto sub_account_id = Database::GetValue(*it, i++, 0);
     auto broker_account_id = Database::GetValue(*it, i++, 0);
     auto security_id = Database::GetValue(*it, i++, 0);
-    auto sec = SecurityManager::Instance().GetSecurity(security_id);
+    auto sec = SecurityManager::Instance().Get(security_id);
     if (!sec) continue;
     p.qty = Database::GetValue(*it, i++, 0.);
     p.avg_price = Database::GetValue(*it, i++, 0.);
@@ -299,7 +299,7 @@ void PositionManager::UpdatePnl() {
     auto& pnl = pnls[acc];
     pnl.first += pos.realized_pnl;
     if (!pos.qty && !pos.unrealized_pnl) continue;
-    auto sec = sm.GetSecurity(sec_id);
+    auto sec = sm.Get(sec_id);
     if (!sec) continue;
     auto px = sec->CurrentPrice();
     if (!px) continue;

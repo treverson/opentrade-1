@@ -189,6 +189,9 @@ void TWAP::Timer() {
       c.type = kMarket;
       break;
   }
+  if (price_ > 0 && ((IsBuy(side_) && c.price > price_) ||
+                     (!IsBuy(side_) && c.price < price_)))
+    return;
   Place(c, inst_);
 }
 

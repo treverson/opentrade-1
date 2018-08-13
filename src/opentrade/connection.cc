@@ -114,7 +114,7 @@ static inline T ParseParamScalar(const json& j) {
         src = DataSrc::GetId(Get<std::string>(it.value()).c_str());
       } else if (it.key() == "sec") {
         auto v = Get<int64_t>(it.value());
-        sec = SecurityManager::Instance().GetSecurity(v);
+        sec = SecurityManager::Instance().Get(v);
         if (!sec)
           throw std::runtime_error("Unknown security id: " + std::to_string(v));
       } else if (it.key() == "acc") {
@@ -616,7 +616,7 @@ void Connection::OnMessage(const std::string& msg) {
         Contract c;
         c.qty = qty;
         c.price = px;
-        c.sec = SecurityManager::Instance().GetSecurity(security_id);
+        c.sec = SecurityManager::Instance().Get(security_id);
         c.stop_price = stop_price;
         if (!c.sec) {
           json j = {
@@ -766,7 +766,7 @@ void Connection::OnMessage(const std::string& msg) {
         for (auto i = 1u; i < j.size(); ++i) {
           auto id = Get<int64_t>(j[i]);
           auto& s = self->subs_[id];
-          auto sec = SecurityManager::Instance().GetSecurity(id);
+          auto sec = SecurityManager::Instance().Get(id);
           if (sec) {
             auto& md = MarketDataManager::Instance().Get(*sec);
             GetMarketData(md, s.first, id, &jout);
