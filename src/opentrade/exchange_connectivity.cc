@@ -119,6 +119,7 @@ bool ExchangeConnectivityManager::Place(Order* ord) {
     snprintf(buf, sizeof(buf), "Not permissioned to trade with sub account: %s",
              ord->sub_account->name);
     kRiskError = buf;
+    HandleConfirmation(ord, kRiskRejected, kRiskError);
     return false;
   }
   auto brokers = ord->sub_account->broker_accounts;
@@ -132,6 +133,7 @@ bool ExchangeConnectivityManager::Place(Order* ord) {
     snprintf(buf, sizeof(buf), "Not permissioned to trade on exchange: %s",
              exchange->name);
     kRiskError = buf;
+    HandleConfirmation(ord, kRiskRejected, kRiskError);
     return false;
   }
   ord->broker_account = it->second;
@@ -155,15 +157,19 @@ bool ExchangeConnectivityManager::Place(Order* ord) {
       ord->price = ord->sec->CurrentPrice();
       if (ord->price <= 0) {
         kRiskError = "Can not find last price for this security";
+        HandleConfirmation(ord, kRiskRejected, kRiskError);
         return false;
       }
     }
   } else if (ord->price <= 0) {
-    HandleConfirmation(ord, kRiskRejected,
-                       "Price can not be empty for limit order");
+    kRiskError = "Price can not be empty for limit order";
+    HandleConfirmation(ord, kRiskRejected, kRiskError);
     return false;
   }
-  if (!RiskManager::Instance().Check(*ord)) return false;
+  if (!RiskManager::Instance().Check(*ord)) {
+    HandleConfirmation(ord, kRiskRejected, kRiskError);
+    return false;
+  }
   ord->leaves_qty = ord->qty;
   ord->id = GlobalOrderBook::Instance().NewOrderId();
   ord->tm = NowUtcInMicro();
@@ -190,13 +196,16 @@ bool ExchangeConnectivityManager::Cancel(const Order& orig_ord) {
   if (!orig_ord.broker_account) return false;
   auto adapter = orig_ord.broker_account->adapter;
   auto name = orig_ord.broker_account->adapter_name;
-  if (!CheckAdapter(adapter, name)) return false;
-  if (!RiskManager::Instance().CheckMsgRate(orig_ord)) return false;
   auto cancel_order = new Order(orig_ord);
   cancel_order->id = GlobalOrderBook::Instance().NewOrderId();
   cancel_order->orig_id = orig_ord.id;
   cancel_order->status = kUnconfirmedCancel;
   cancel_order->tm = NowUtcInMicro();
+  if (!CheckAdapter(adapter, name) ||
+      !RiskManager::Instance().CheckMsgRate(orig_ord)) {
+    HandleConfirmation(cancel_order, kRiskRejected, kRiskError);
+    return false;
+  }
   HandleConfirmation(cancel_order, kUnconfirmedCancel, "", cancel_order->tm);
   kRiskError = adapter->Cancel(*cancel_order);
   auto ok = kRiskError.empty();
