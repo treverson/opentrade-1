@@ -959,6 +959,9 @@ void Connection::Send(const Confirmation& cm, bool offline) {
       if (cm.exec_type == kNew) {
         j.push_back(cm.order_id);
       }
+      if (!cm.text.empty()) {
+        j.push_back(cm.text);
+      }
       break;
 
     case kFilled:
